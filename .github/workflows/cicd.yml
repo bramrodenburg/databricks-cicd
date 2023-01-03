@@ -34,6 +34,7 @@ jobs:
         report_paths: 'test-reports/unittests.xml'
         
   integration-tests:
+    needs: unit-tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -57,3 +58,4 @@ jobs:
         databricks repos update \
           --path "${REPO_DIR}/databricks-cicd" \
           --branch "${GITHUB_REF_NAME}"  # todo: check if this can be changed to commit hash
+# TODO: Trigger integration tests          

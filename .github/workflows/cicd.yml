@@ -4,9 +4,6 @@ on:
   push:
   pull_request:
     branches: [ "main" ]
-
-permissions:
-  contents: read
   
 env:
   DATABRICKS_HOST: https://${{secrets.DATABRICKS_WORKSPACE}}

@@ -14,7 +14,29 @@ env:
   REPO_DIR: "/Repos/cicd"
 
 jobs:
-  build:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        apt update && apt install -y jq
+        python -m pip install --upgrade pip
+        pip install -r python_requirements.txt -r python_test_requirements.txt -r python_local_requirements.txt
+    - name: Run Unit Tests
+      run: |
+        pytest -m "not databricks" --junitxml="test-reports/unittests.xml" tests/
+    - name: Publish Test Report
+      if: ${{ always() }}
+      uses: scacap/action-surefire-report@v1
+      with:
+        report_paths: 'test-reports/unittests.xml'
+        
+  integration-tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3

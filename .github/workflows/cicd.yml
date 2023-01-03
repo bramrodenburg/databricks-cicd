@@ -23,7 +23,7 @@ jobs:
       run: |
         apt update && apt install -y jq
         python -m pip install --upgrade pip
-        pip install -r python_requirements.txt -r python_test_requirements.txt -r python_local_requirements.txt
+        pip install -e ".[local,test]"
     - name: Run Unit Tests
       run: |
         pytest -m "not databricks" --junitxml="test-reports/unittests.xml" tests/

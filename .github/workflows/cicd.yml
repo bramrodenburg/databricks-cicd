@@ -9,7 +9,7 @@ permissions:
   contents: read
   
 env:
-  DATABRICKS_HOST: ${{secrets.DATABRICKS_WORKSPACE}}
+  DATABRICKS_HOST: https://${{secrets.DATABRICKS_WORKSPACE}}
   DATABRICKS_TOKEN: ${{secrets.DATABRICKS_TOKEN}}
   REPO_DIR: "/Repos/cicd"
 

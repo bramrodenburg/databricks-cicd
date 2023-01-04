@@ -23,3 +23,6 @@ def test_add_metadata(spark: SparkSession) -> None:
 def test_plus_one() -> None:
     assert 1+1 == 2
 
+
+def test_plus_two() -> None:
+    assert 2+2 == 3

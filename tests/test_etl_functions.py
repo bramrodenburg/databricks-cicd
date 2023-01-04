@@ -25,4 +25,4 @@ def test_plus_one() -> None:
 
 
 def test_plus_two() -> None:
-    assert 2+2 == 3
+    assert 2+2 == 4

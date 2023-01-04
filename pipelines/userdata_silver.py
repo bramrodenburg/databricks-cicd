@@ -29,7 +29,3 @@ output_df = add_metadata(input_df)
 # COMMAND ----------
 
 output_df.write.mode("overwrite").option("mergeSchema", "true").saveAsTable(destination_table)
-
-# COMMAND ----------
-
-

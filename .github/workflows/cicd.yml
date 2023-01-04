@@ -31,6 +31,7 @@ jobs:
       if: ${{ always() }}
       uses: scacap/action-surefire-report@v1
       with:
+        check_name: "Unit Tests Report"
         report_paths: 'test-reports/unittests.xml'
         
   integration-tests:

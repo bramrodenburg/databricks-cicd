@@ -22,3 +22,7 @@ def add_metadata(df: DataFrame) -> DataFrame:
           .withColumn("m_file_processed", f.input_file_name())
         )
 
+
+def plus_one(x):
+    return x+1
+
